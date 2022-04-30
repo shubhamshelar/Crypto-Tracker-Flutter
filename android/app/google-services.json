@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "585172850516",
+    "project_id": "crypto-tracker-flutter-ae61e",
+    "storage_bucket": "crypto-tracker-flutter-ae61e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585172850516:android:eebe9fba921e6fc5949ac1",
+        "android_client_info": {
+          "package_name": "com.pblteam.cryptoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "585172850516-u0flarp5cpri40ci53c4jg47jtat96f3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pblteam.cryptoapp",
+            "certificate_hash": "f840db504fbb520efa04bf9490773d8a6a659741"
+          }
+        },
+        {
+          "client_id": "585172850516-7skm517j7s0ejqhoiqhiabk6vjh1ssqq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXrDK-jiXCIfa8ZKeCKkSpV0tSN58DWJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "585172850516-7skm517j7s0ejqhoiqhiabk6vjh1ssqq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
