@@ -94,7 +94,7 @@ class _NavbarState extends State<Navbar> {
                 }),
           ),
           ListTile(
-            leading: const Icon(Icons.settings),
+            leading: const Icon(CupertinoIcons.person_2),
             title: const Text('Developers'),
             onTap: () {
               Navigator.pushAndRemoveUntil(

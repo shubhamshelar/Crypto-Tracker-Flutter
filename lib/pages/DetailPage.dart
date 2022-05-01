@@ -105,7 +105,9 @@ class _DetailsPageState extends State<DetailsPage> {
         return true;
       },
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: Text("Detail Information " , style: TextStyle(fontSize: 25.0 , fontWeight: FontWeight.bold, ),),
+        ),
         body: SafeArea(
           child: Container(
             padding: EdgeInsets.only(
@@ -153,6 +155,10 @@ class _DetailsPageState extends State<DetailsPage> {
                 SizedBox(
                   height: 10,
                 ),
+                SizedBox(
+                  height: 20,
+                ),
+
                 Consumer<MarketProvider>(
                   builder: (context, marketProvider, child) {
                     CryptoCurrency currentCrypto =
@@ -290,6 +296,49 @@ class _DetailsPageState extends State<DetailsPage> {
                                 currentCrypto.ath!.toStringAsFixed(4),
                                 CrossAxisAlignment.start),
                           ],
+                        ),
+                        SizedBox(
+                          height: 15.0,
+                        ),
+                        (currentCrypto.isFavorite == false)
+                            ? GestureDetector(
+                          onTap: () {
+                            marketProvider.addFavorite(currentCrypto);
+                          },
+                          child: Container(
+                              padding: EdgeInsetsDirectional.only(
+                                  start: 75.0, top: 10.0, bottom: 10.0),
+                              width: double.infinity,
+                              height: 40.0,
+                              color:  Color.fromARGB(19, 92, 92, 92),
+                              child: Text(
+                                "Add To Favorite",
+                                style: TextStyle(
+                                    fontSize: 22.0,
+                                    color: Colors.blue.shade500,
+                                    fontWeight: FontWeight.bold),
+                              )),
+                        )
+                            : GestureDetector(
+                          onTap: () {
+                            marketProvider.removeFavorite(currentCrypto);
+                          },
+                          child: Container(
+                              padding: EdgeInsetsDirectional.only(
+                                  start: 75.0, top: 10.0, bottom: 10.0),
+                              width: double.infinity,
+                              height: 40.0,
+                              color:  Color.fromARGB(19, 92, 92, 92),
+                              child: Text(
+                                "Remove From  Favorite",
+                                style: TextStyle(
+                                    fontSize: 22.0,
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold),
+                              )),
+                        ),
+                        SizedBox(
+                          height: 10.0,
                         ),
                       ],
                     );
