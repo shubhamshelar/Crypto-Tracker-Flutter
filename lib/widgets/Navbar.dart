@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:crytoapp/pages/Team.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -94,29 +95,16 @@ class _NavbarState extends State<Navbar> {
           ),
           ListTile(
             leading: const Icon(Icons.settings),
-            title: const Text('Settings'),
+            title: const Text('Developers'),
             onTap: () {
-              Navigator.of(context).pop();
+              Navigator.pushAndRemoveUntil(
+                  (context),
+                  MaterialPageRoute(builder: (context) => Team()),
+                  (route) => false);
             },
           ),
           SizedBox(
             height: 400,
-          ),
-          ListTile(
-            title: Row(
-              children: [
-                SizedBox(width: 40),
-                Text('MADE WITH '),
-                Icon(
-                  CupertinoIcons.heart_fill,
-                  color: Colors.red,
-                  size: 18,
-                ),
-                Row(children: [
-                  Text(" BY PRADEEP"),
-                ]),
-              ],
-            ),
           ),
         ],
       ),

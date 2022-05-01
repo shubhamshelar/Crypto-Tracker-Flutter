@@ -7,14 +7,12 @@ import '../pages/DetailPage.dart';
 
 class CryptoListTile extends StatelessWidget {
   final CryptoCurrency currentCrypto;
-    
 
   const CryptoListTile({Key? key, required this.currentCrypto})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     
     MarketProvider marketProvider =
         Provider.of<MarketProvider>(context, listen: false);
     return Column(
@@ -25,13 +23,13 @@ class CryptoListTile extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => DetailsPage(
-          
                         id: currentCrypto.id!,
                       )),
             );
           },
           tileColor: Color.fromARGB(19, 92, 92, 92),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
           contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 00),
           leading: CircleAvatar(
             backgroundColor: Colors.white,
@@ -40,8 +38,8 @@ class CryptoListTile extends StatelessWidget {
           title: Row(
             children: [
               Flexible(
-                  child:
-                      Text(currentCrypto.name!, overflow: TextOverflow.ellipsis)),
+                  child: Text(currentCrypto.name!,
+                      overflow: TextOverflow.ellipsis)),
               SizedBox(
                 width: 10,
               ),
@@ -75,7 +73,8 @@ class CryptoListTile extends StatelessWidget {
               Text(
                 "₹ " + currentCrypto.currentPrice!.toStringAsFixed(4),
                 style: TextStyle(
-                  color: Color(0xff0395eb),
+                  //color: Color(0xff0395eb),
+                  color: Colors.blue,
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),
@@ -104,9 +103,10 @@ class CryptoListTile extends StatelessWidget {
             ],
           ),
         ),
-       SizedBox(
-            height: 5,
-          ),],
+        SizedBox(
+          height: 5,
+        ),
+      ],
     );
   }
 }

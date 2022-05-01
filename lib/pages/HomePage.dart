@@ -7,6 +7,9 @@ import 'package:crytoapp/providers/market_provider.dart';
 import 'package:crytoapp/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
 import '../widgets/Navbar.dart';
 
@@ -22,6 +25,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    //getNews();
     viewController = TabController(length: 3, vsync: this);
   }
 
@@ -30,34 +34,26 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     ThemeProvider themeProvider =
         Provider.of<ThemeProvider>(context, listen: false);
     return Scaffold(
-      
       drawer: Navbar(),
       appBar: AppBar(
         title: Padding(
           padding: const EdgeInsets.all(40),
           child: SizedBox(
-            
               height: 45,
               child: Image.asset(
                 "assets/images/nametrans2.png",
                 fit: BoxFit.contain,
-                 
               )),
         ),
       ),
       body: SafeArea(
         child: Container(
-          
           padding: EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              
-              
-              
               TabBar(
                 controller: viewController,
-                
                 tabs: [
                   Tab(
                     child: Text(
@@ -81,7 +77,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
               Expanded(
                 child: TabBarView(
-                  
                   physics: BouncingScrollPhysics(
                       parent: AlwaysScrollableScrollPhysics()),
                   controller: viewController,

@@ -51,7 +51,7 @@ class _DetailsPageState extends State<DetailsPage> {
         log(isSelected.toString());
       }
     }
-    
+
     switch (index) {
       case 0:
         days = 1;
@@ -96,7 +96,6 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   void dispose() {
     super.dispose();
-  
   }
 
   @override
@@ -106,10 +105,7 @@ class _DetailsPageState extends State<DetailsPage> {
         return true;
       },
       child: Scaffold(
-        
-        appBar: AppBar(
-        
-        ),
+        appBar: AppBar(),
         body: SafeArea(
           child: Container(
             padding: EdgeInsets.only(
@@ -117,28 +113,9 @@ class _DetailsPageState extends State<DetailsPage> {
               right: 20,
             ),
             child: ListView(
-              
               children: [
-                 SizedBox(
-                  height: 20,
-                ),
-                Center(
-                  child: ToggleButtons(
-                    borderRadius: BorderRadius.circular(10),
-                    onPressed: (index) {
-                      toggleDate(index);
-                    },
-                    children: [
-                      Text("1D"),
-                      Text("7D"),
-                      Text("28D"),
-                      Text("90D"),
-                    ],
-                    isSelected: isSelected,
-                  ),
-                ),
                 SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
@@ -158,30 +135,41 @@ class _DetailsPageState extends State<DetailsPage> {
                     ],
                   ),
                 ),
+                Center(
+                  child: ToggleButtons(
+                    borderRadius: BorderRadius.circular(10),
+                    onPressed: (index) {
+                      toggleDate(index);
+                    },
+                    children: [
+                      Text("1D"),
+                      Text("7D"),
+                      Text("28D"),
+                      Text("90D"),
+                    ],
+                    isSelected: isSelected,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
                 Consumer<MarketProvider>(
                   builder: (context, marketProvider, child) {
                     CryptoCurrency currentCrypto =
                         marketProvider.fetchCryptoById(widget.id);
 
                     return ListView(
-                    
-                                         
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
                       children: [
                         ListTile(
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0)),
                           contentPadding: EdgeInsets.all(10),
                           tileColor: Color.fromARGB(19, 92, 92, 92),
-                          
-                          
-                          leading: (
-                            ClipOval(
-                              child: Image.network(currentCrypto.image!),
-            
-                         
-                            )
-                          ),
+                          leading: (ClipOval(
+                            child: Image.network(currentCrypto.image!),
+                          )),
                           title: Text(
                             currentCrypto.name! +
                                 " (${currentCrypto.symbol!.toUpperCase()})",
@@ -202,13 +190,14 @@ class _DetailsPageState extends State<DetailsPage> {
                           height: 20,
                         ),
                         Column(
-                        
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               "Price Change (24h)",
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20 ,),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
                             ),
                             Builder(
                               builder: (context) {
@@ -239,6 +228,13 @@ class _DetailsPageState extends State<DetailsPage> {
                         SizedBox(
                           height: 30,
                         ),
+                        titleAndDetail(
+                            "Market Cap Rank",
+                            "#" + currentCrypto.marketCapRank.toString(),
+                            CrossAxisAlignment.start),
+                        SizedBox(
+                          height: 15.0,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -247,10 +243,6 @@ class _DetailsPageState extends State<DetailsPage> {
                                 "₹ " +
                                     currentCrypto.marketCap!.toStringAsFixed(4),
                                 CrossAxisAlignment.start),
-                            titleAndDetail(
-                                "Market Cap Rank",
-                                "#" + currentCrypto.marketCapRank.toString(),
-                                CrossAxisAlignment.end),
                           ],
                         ),
                         SizedBox(
