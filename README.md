@@ -44,8 +44,7 @@ https://user-images.githubusercontent.com/88220620/163415292-241f4638-6dc2-4f00-
 ![image](https://user-images.githubusercontent.com/88220620/163413868-ea859219-5ea3-4055-95c4-5234183f664f.png)
 ### Detail Page 
 ![image](https://user-images.githubusercontent.com/88220620/163414001-e9f0f5cf-3fcb-46f1-b942-c76fb97f1f21.png)
-### Drawer
-![image](https://user-images.githubusercontent.com/88220620/163414080-0b8dcb1f-a953-4656-bd8d-62dadf15311e.png)
+
 
 
 
