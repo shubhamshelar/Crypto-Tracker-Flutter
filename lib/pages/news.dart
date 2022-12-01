@@ -77,7 +77,7 @@ class _CryptoNewsListState extends State<CryptoNewsList> {
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 5),
                       decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: Colors.white70,
                           borderRadius: BorderRadius.circular(5)),
                       child: Text(
                         toShow.source.substring(toShow.source.indexOf('|') + 2),
